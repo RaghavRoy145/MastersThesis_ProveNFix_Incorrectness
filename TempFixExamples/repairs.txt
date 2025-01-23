@@ -1,0 +1,12 @@
+In /home/benchmark-RQ5/doubleFree.c:
+
+~~~~~~~~~ In function: main ~~~~~~~~~
+Future-condition checking for 'malloc @20': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ p.f=0 /\ free(p.f)@23 ~~~> (!_(p.f))^*;
+[Patches]
+ @ line 23 can be inserted with code: if (p.f==0){ return; }
+
