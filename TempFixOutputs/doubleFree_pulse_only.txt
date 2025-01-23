@@ -1,0 +1,32 @@
+Arguments are ,p
+/home/benchmark-RQ5/doubleFree.c
+annalysing foo
+CallingFunction: malloc @12
+|- futurec_raw ((.ret!=0) /\ (!free(.ret))^* · free(.ret) · (_)^*) \/ (.ret=0 /\ (!_(.ret))^*), and the handler is q
+current states: 1
+checking futurecondition ... 1|-2
+ = LHS: (.ret=q /\ CONSUME(q)@14 · RET(q)@14 · RET(q)@14,1)
+|- RHS: ((q!=0) /\ (!free(q))^* · free(q) · (_)^*) \/ (q=0 /\ (!_(q))^*)
+/home/benchmark-RQ5/doubleFree.c
+
+=====> Actual effects of function: foo ======>
+(.ret=q /\ deref(p)@12 · deref(p)@13 · CONSUME(q)@14 · RET(q)@14,1) \/ (.ret=q /\ deref(p)@12 · CONSUME(q)@14 · RET(q)@14,1)
+Arguments are 
+/home/benchmark-RQ5/doubleFree.c
+annalysing main
+CallingFunction: malloc @20
+|- futurec_raw ((.ret!=0) /\ (!free(.ret))^* · free(.ret) · (_)^*) \/ (.ret=0 /\ (!_(.ret))^*), and the handler is p.f
+CallingFunction: foo @21
+CallingFunction: free @22
+CallingFunction: free @24
+current states: 1
+checking futurecondition ... 1|-2
+ = LHS: (true /\ free(q)@22 · free(p.f)@24,0)
+|- RHS: ((p.f!=0) /\ (!free(p.f))^* · free(p.f) · (_)^*) \/ (p.f=0 /\ (!_(p.f))^*)
+free(p.f)@24 |- (!_(p.f))^*
+ ------- 
+/home/benchmark-RQ5/doubleFree.c
+
+=====> Actual effects of function: main ======>
+(true /\ deref(p)@20 · free(q)@22 · free(p.f)@24,0)
+
