@@ -75,3 +75,8 @@ Talk to Prof. Earl about LLM thing, good idea? Concretise approach first for Pro
 - Example of future condition entailment check with simple program execution
 - Find out which bugs the tool can detect and which it can repair
 - Generating repair conditions → how could this work in the context of Infer instead of ProveNFix (the slides currently have an implementation in the context of ProveNFix)
+
+**Week 8**
+- Try examples of program synthesis using repair condition idea (infer)
+- Explore template/declaration to constrain space of synthesis to certain classes of bugs
+- incorrectness logic amenable to synthesis? Check ilya's paper shared by Prof Loc.
