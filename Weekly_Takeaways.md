@@ -80,3 +80,8 @@ Talk to Prof. Earl about LLM thing, good idea? Concretise approach first for Pro
 - Try examples of program synthesis using repair condition idea (infer)
 - Explore template/declaration to constrain space of synthesis to certain classes of bugs
 - incorrectness logic amenable to synthesis? Check ilya's paper shared by Prof Loc.
+
+**Week 9**
+- Instead of focusing on using SSL rules to synthesise fixes, do manual fixing and see if there's a pattern
+- Take up NPE bugs (and others) to understand how these can be fixed in the general case
+- Can there be a mechanised (proof rules) way to do it in ISL
